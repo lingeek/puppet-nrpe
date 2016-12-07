@@ -1,0 +1,36 @@
+#Managed by Puppet
+#DO NOT EDIT !!!
+#
+Port <%= @sshd_port %> 
+ListenAddress <%= @sshd_listen %> 
+
+#CIS Level-1 Security Benchmark
+
+ChallengeResponseAuthentication <%= @sshd_challenge_response %>
+
+PasswordAuthentication <%= @sshd_pass_auth %>
+
+
+UsePAM <%= @sshd_pam %>
+Protocol <%= @sshd_protocol %>
+AuthorizedKeysFile  <%= @sshd_keyfile %>
+
+
+LogLevel <%= @sshd_log_level %>
+X11Forwarding <%= @sshd_x11_forwarding %>
+IgnoreRhosts <%= @sshd_ignore_rhosts %>
+MaxAuthTries <%= @sshd_max_auth %>
+HostbasedAuthentication <%= @sshd_host_based %>
+PermitRootLogin <%= @sshd_permit_root %>
+PermitEmptyPasswords <%= @sshd_permit_empty %>
+PermitUserEnvironment <%= @sshd_permit_user %>
+Ciphers <%= @sshd_ciphers %>
+ClientAliveInterval <%= @sshd_client_interval %>
+ClientAliveCountMax <%= @sshd_client_max %>
+Banner <%= @sshd_banner %>
+
+Subsystem       sftp    /usr/lib/ssh/sftp-server
+AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
+AcceptEnv LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT
+AcceptEnv LC_IDENTIFICATION LC_ALL
+
